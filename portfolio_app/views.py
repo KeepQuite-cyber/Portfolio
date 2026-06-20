@@ -1,6 +1,6 @@
 from django.shortcuts import render , redirect
 from django.core.mail import send_mail
-from .models import Projects
+from .models import Projects , Tools
 import requests
 from portfolio_core.settings import TOKEN
 # Create your views here.
@@ -16,10 +16,12 @@ def home(request):
     repo_count = r.json()['public_repos']
 
     projects = Projects.objects.all()
+    tools = Tools.objects.all()
 
     context = {
         'repo_count' : repo_count,
-        'projects' : projects
+        'projects' : projects,
+        'tools' : tools
     }
 
     return render(request , "home.html" , context)
