@@ -72,7 +72,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "portfolio_core.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
@@ -129,8 +128,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Email Configuration ..
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = os.getenv("EMAIL_HOST")
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'dangerm249@gmail.com'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
